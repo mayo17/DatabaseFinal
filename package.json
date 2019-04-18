@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/mayo17/DatabaseFinal/issues"
   },
-  "homepage": "https://github.com/mayo17/DatabaseFinal#readme"
+  "homepage": "https://github.com/mayo17/DatabaseFinal#readme",
+  "dependencies": {
+    "mysql": "^2.17.0"
+  }
 }
