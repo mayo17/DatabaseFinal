@@ -9,3 +9,10 @@ npm install mysql
 mysql electron guide
 
 https://ourcodeworld.com/articles/read/259/how-to-connect-to-a-mysql-database-in-electron-framework
+
+
+sqlectron (for testing queries)
+
+https://sqlectron.github.io/
+
+gui and terminal versions
