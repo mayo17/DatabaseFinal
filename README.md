@@ -14,3 +14,5 @@ gui and terminal versions
 
 For converting excel files to mysql databases https://github.com/ngudbhav/TriCo-electron-app
 Not sure if we need this. 
+
+phpmyadmin for editing data on the web server https://www.phpmyadmin.net/downloads/
