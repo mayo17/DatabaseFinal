@@ -1,6 +1,2 @@
-    $ git status
-    [...]
-    # Untracked files:
-    [...]
-    #       *.code-workspace
-DFWorkspace.code-workspace
+
+*.code-workspace
