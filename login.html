@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
 
+<link rel="stylesheet" href="styles.css">
+
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
   <h1>Login Page</h1>
-  Please enter your login information. 
+  Please enter your login information.
+
+  <br>
+  <form action="/login.js"> <!--May revise to remove the action-->
+    <div class="container">
+      <label for="user"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="user" required>
+  
+      <label for="pass"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="pass" required>
+          
+      <button type="submit">Login</button>
+    </div>
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
 
   <br>
   <input type="button" value="Connect to mysql" id="btn" />
