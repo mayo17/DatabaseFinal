@@ -13,6 +13,32 @@ CREATE TABLE colleges(
   ,ugenum  INTEGER 
   ,genum   INTEGER 
 );
+
+DROP TABLE IF EXISTS students;
+CREATE TABLE students(
+  sid       INTEGER NOT NULL PRIMARY KEY
+  ,fname    VARCHAR(200) NOT NULL
+  ,lname    VARCHAR(200) NOT NULL
+  ,dob      DATE NOT NULL
+  ,state    VARCHAR(20) NOT NULL
+  ,zip      INTEGER NOT NULL
+  ,user     VARCHAR(200) NOT NULL
+  ,password VARCHAR(200) NOT NULL
+);
+
+DROP TABLE IF EXISTS professors;
+CREATE TABLE professors(
+  pid       INTEGER NOT NULL PRIMARY KEY
+  ,fname    VARCHAR(200) NOT NULL
+  ,lname    VARCHAR(200) NOT NULL
+  ,dob      DATE NOT NULL
+  ,state    VARCHAR(20)
+  ,zip      INTEGER
+  ,salary   FLOAT(200,2)
+  ,user     VARCHAR(200) NOT NULL
+  ,password VARCHAR(200) NOT NULL
+);
+
 INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (100654,'Alabama A & M University',35762,'Doctor''s degree - research/scholarship','Madison County',6142,5521,7182,'Alabama',5020,4051,969);
 INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (100663,'University of Alabama at Birmingham',35294,'Doctor''s degree - research/scholarship and professional practice','Jefferson County',5689,4934,7206,'Alabama',18568,11502,7066);
 INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (100690,'Amridge University',36117,'Doctor''s degree - research/scholarship and professional practice','Montgomery County',NULL,NULL,6870,'Alabama',631,322,309);
