@@ -8,61 +8,21 @@
 
 <body>
   <h1>Welcome to US University Database</h1>
-  <!-- All of the Node.js APIs are available in this renderer process. -->
   We are using Node.js
   <script>document.write(process.versions.node)</script>,
   Chromium
   <script>document.write(process.versions.chrome)</script>,
   Electron
   <script>document.write(process.versions.electron)</script>,
-  and MYSQL
-  <script>document.write(processs.versions.mysql)</script>.
+  and MYSQL.
 
   <br>
   <input type="button" value="Connect to mysql" id="btn" />
 
   <script>
-    // You can also require other files to run in this process
+    //Javascript files called
+    require('./index.js')
     require('./renderer.js')
-    document.getElementById("btn").addEventListener("click", () => {
-      var mysql = require("mysql");
-
-      //Database Credentials: Not Secure
-      var connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'mayo',
-        password: 'kyusung',
-        database: 'sakila'
-      });
-
-      // connect to mysql
-      connection.connect(function (err) {
-        // in case of error
-        if (err) {
-          console.log(err.code);
-          console.log(err.fatal);
-        }
-      });
-
-      // Perform a query
-      $query = 'SELECT * FROM `actor` LIMIT 10';
-
-      connection.query($query, function (err, rows, fields) {
-        if (err) {
-          console.log("An error ocurred performing the query.");
-          console.log(err);
-          return;
-        }
-
-        console.log("Query succesfully executed", rows);
-      });
-
-      // Close the connection
-      connection.end(function () {
-        // The connection has been closed
-      });
-      
-    }, false);
   </script>
 </body>
 
