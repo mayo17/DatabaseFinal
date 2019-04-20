@@ -1,23 +1,28 @@
 {
-  "name": "usdata",
+  "name": "databasefinal",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Our final project",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mayo17/DatabaseFinal.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "usdata",
+    "start"
+  ],
+  "author": "Group 12",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mayo17/DatabaseFinal/issues"
   },
   "homepage": "https://github.com/mayo17/DatabaseFinal#readme",
   "dependencies": {
-    "mysql": "^2.17.0"
+    "electron": "^4.1.4",
+    "mysql": "^2.17.1"
   }
 }
