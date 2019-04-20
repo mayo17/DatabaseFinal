@@ -1,5 +1,7 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = require('electron');
+const electron = require('electron');
+const Menu = electron.Menu;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -33,7 +35,53 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+
+app.on('ready', function(){
+  createWindow()
+
+  const template = [
+    {
+      label: 'Home',
+      click: function(){
+        console.log('Clicked demo')
+        mainWindow.loadFile('index.html')
+      }
+    },
+    {
+      label: 'Search',
+      click: function(){
+        console.log('Clicked Search')
+        mainWindow.loadFile('search.html')
+      }
+    },
+    {
+      label: 'Login',
+      click: function(){
+        console.log('Clicked login')
+        mainWindow.loadFile('login.html')
+      }
+    },
+    {
+      label: 'Register',
+      click: function(){
+        console.log('Clicked Register')
+        mainWindow.loadFile('register.html')
+      }
+    },
+    {
+      label: 'Account Info',
+      click: function(){
+        console.log('Clicked Account Info')
+        mainWindow.loadFile('account.html')
+      }
+    }
+  ]
+
+  const menu = Menu.buildFromTemplate(template)
+
+  Menu.setApplicationMenu(menu)
+
+});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
