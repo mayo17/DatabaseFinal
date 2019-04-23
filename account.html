@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+<link rel="stylesheet" href="styles.css">
+
 <head>
   <meta charset="UTF-8">
   <title>Account</title>
@@ -8,16 +10,19 @@
 
 <body>
   <h1>Account Page</h1>
-  Account Information.  
-
+  Click the button to generate your attendance information.
   <br>
-  <input type="button" value="Connect to mysql" id="btn" />
+  <br>
+  <button type="submit" id="generate">Generate</button>
+  <br>
+  <p id="status"></p>
 
   <script>
     //Javascript files called
     require('./account.js')
     require('./renderer.js')
   </script>
+
 </body>
 
 </html>

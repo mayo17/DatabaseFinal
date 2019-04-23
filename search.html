@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
 
+<link rel="stylesheet" href="styles.css">
+
 <head>
   <meta charset="UTF-8">
   <title>Search</title>
 </head>
 
 <body>
-  <h1>Search Page</h1>
-  Please select from the following options to find schools. 
-
+  <h1>Searchc Page</h1>
+  Click the button to generate your search information. 
   <br>
-  <input type="button" value="Connect to mysql" id="btn" />
+  <br>
+  <button type="submit" id="generate">Generate</button>
+  <br>
+  <p id="status"></p>
 
   <script>
     //Javascript files called
     require('./search.js')
     require('./renderer.js')
   </script>
+
 </body>
+
+</html>
 
 </html>
