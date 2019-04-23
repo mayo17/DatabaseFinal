@@ -18,8 +18,7 @@ document.getElementById("submit").addEventListener("click", () => {
             logCheck()
         } else {
             console.log("Query Professor succesfully executed", logs)
-            $query1 = "INSERT INTO logging (user) VALUES (?)"
-
+            $query1 = "INSERT INTO logging (user) VALUES (?)"   //Inserts user into the log
             connect.query($query1, [user], function (err, rows, fields) {
                 if (err) {
                     console.log("An error ocurred while performing the query.")
@@ -46,8 +45,7 @@ document.getElementById("submit").addEventListener("click", () => {
             logCheck()
         } else {
             console.log("Query Student succesfully executed", logs)
-            $query1 = "INSERT INTO logging (user) VALUES (?)"
-
+            $query1 = "INSERT INTO logging (user) VALUES (?)"   //Inserts user into the log
             connect.query($query1, [user], function (err, rows, fields) {
                 if (err) {
                     console.log("An error ocurred while performing the query.")
