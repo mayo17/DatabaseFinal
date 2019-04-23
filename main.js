@@ -1,19 +1,35 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron');
+const { app, BrowserWindow } = require('electron');
 const electron = require('electron');
 const Menu = electron.Menu;
+
+mysql = require('mysql')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       nodeIntegration: true
+    }
+  })
+
+  connect = mysql.createConnection({
+    host: 'localhost',
+    user: 'mayo',
+    password: 'kyusung',
+    database: 'usdata'
+  })
+  
+  connect.connect(function (err) {
+    if (err) {
+        console.log(err.code)
+        console.log(err.fatal)
     }
   })
 
@@ -25,6 +41,21 @@ function createWindow () {
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
+    $query = "DELETE FROM logging"
+
+    connect.query($query, function (err, rows, fields) {
+      if (err) {
+        console.log("An error ocurred while performing the query.")
+        console.log(err)
+        return
+      }
+      console.log("Delete succesfully executed", rows)
+    })
+
+    connect.end(function () {
+      console.log("MYSQL connection closed")
+    })
+
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
@@ -36,41 +67,41 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 
-app.on('ready', function(){
+app.on('ready', function () {
   createWindow()
 
   const template = [
     {
       label: 'Home',
-      click: function(){
+      click: function () {
         console.log('Clicked demo')
         mainWindow.loadFile('index.html')
       }
     },
     {
       label: 'Search',
-      click: function(){
+      click: function () {
         console.log('Clicked Search')
         mainWindow.loadFile('search.html')
       }
     },
     {
       label: 'Login',
-      click: function(){
+      click: function () {
         console.log('Clicked login')
         mainWindow.loadFile('login.html')
       }
     },
     {
       label: 'Register',
-      click: function(){
+      click: function () {
         console.log('Clicked Register')
         mainWindow.loadFile('register.html')
       }
     },
     {
       label: 'Account Info',
-      click: function(){
+      click: function () {
         console.log('Clicked Account Info')
         mainWindow.loadFile('account.html')
       }
