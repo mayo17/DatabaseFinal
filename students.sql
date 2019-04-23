@@ -1,12 +1,13 @@
 CREATE TABLE students (
-    `sid` INT,
-    `fname` VARCHAR(8) CHARACTER SET utf8,
-    `lname` VARCHAR(8) CHARACTER SET utf8,
-    `dob` DATETIME,
-    `state` VARCHAR(9) CHARACTER SET utf8,
-    `zip` INT,
-    `user` VARCHAR(9) CHARACTER SET utf8,
-    `pass` VARCHAR(9) CHARACTER SET utf8
+    sid INT AUTO_INCREMENT,
+    fname VARCHAR(20) NOT NULL,
+    lname VARCHAR(20) NOT NULL,
+    dob DATETIME NOT NULL,
+    state VARCHAR(20),
+    zip INT,
+    user VARCHAR(20) NOT NULL,
+    pass VARCHAR(20) NOT NULL,
+    PRIMARY KEY (sid)
 );
 INSERT INTO students VALUES
     (1,'Jonathan','Ross','1990-03-01 00:00:00','Florida',33635,'bross','apple1'),
