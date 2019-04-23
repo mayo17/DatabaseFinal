@@ -9,29 +9,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body onload="QueryLoad()" onunload="QueryUnload()">
+<body>
   <h1>Login Page</h1>
   Please enter your login information.
 
   <br>
-  <form action="/login.js"> <!--May revise to remove the action-->
-    <div class="container">
+    
+  <div class="container">
       <label for="user"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="user" required>
+      <input type="text" placeholder="Enter Username" id="user" required>
   
       <label for="pass"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="pass" required>
+      <input type="password" placeholder="Enter Password" id="pass" required>
+      <br>
+      <p id="loginwarning"></p>
           
-      <button type="submit">Login</button>
+      <button type="submit" id="submit">Login</button>
     </div>
-  
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancel">Cancel</button>
-    </div>
-  </form>
 
-  <br>
-  <input type="button" value="Connect to mysql" id="btn" />
+    <script>
+      //Javascript files called
+      require('./login.js')
+      require('./renderer.js')
+    </script>
+
 </body>
 
 </html>
