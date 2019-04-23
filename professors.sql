@@ -1,13 +1,14 @@
 CREATE TABLE professors (
-    `pid` INT,
-    `fname` VARCHAR(7) CHARACTER SET utf8,
-    `lname` VARCHAR(7) CHARACTER SET utf8,
-    `dob` DATETIME,
-    `state` VARCHAR(14) CHARACTER SET utf8,
-    `zip` INT,
-    `salary` INT,
-    `user` VARCHAR(8) CHARACTER SET utf8,
-    `pass` VARCHAR(10) CHARACTER SET utf8
+    pid INT AUTO_INCREMENT,
+    fname VARCHAR(20),
+    lname VARCHAR(20),
+    dob DATETIME,
+    state VARCHAR(20),
+    zip INT,
+    salary FLOAT(200,2),
+    user VARCHAR(20),
+    pass VARCHAR(20),
+    PRIMARY KEY (pid)
 );
 INSERT INTO professors VALUES
     (1001,'Harry','Johns','1987-09-21 00:00:00','California',90210,56000,'hjohns','pnut6'),
