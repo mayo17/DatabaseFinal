@@ -1,9 +1,10 @@
 CREATE TABLE attends (
-    `aid` INT,
-    `uid` INT,
-    `cid` INT,
-    `dstart` DATETIME,
-    `dend` DATETIME
+    aid INT AUTO_INCREMENT,
+    uid INT NOT NULL,
+    cid INT NOT NULL,
+    dstart DATETIME NOT NULL,
+    dend DATETIME NOT NULL,
+    PRIMARY KEY (aid)
 );
 INSERT INTO attends VALUES
     (1,1004,134130,'1981-08-01 00:00:00','1985-05-01 00:00:00'),
