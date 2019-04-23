@@ -18,7 +18,8 @@ document.getElementById("btn").addEventListener("click", () => {
     });
 
     // Perform a query
-    $query = 'SELECT * FROM `actor` LIMIT 10';
+
+    $query = 'SELECT * FROM `actor` LIMIT 10' + variable;
 
     connect.query($query, function (err, rows, fields) {
         if (err) {
@@ -29,9 +30,9 @@ document.getElementById("btn").addEventListener("click", () => {
         console.log("Query succesfully executed", rows);
     });
 
-    // Close the connection
-    connect.end(function () {
-        // The connection has been closed
-    });
+    // button.onclick()
+    // {
+    //     print queries
+    // }
 
 }, false);

@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
+<body onload="QueryLoad()" onunload="QueryUnload()">
   <h1>Login Page</h1>
   Please enter your login information.
 
@@ -26,18 +26,12 @@
     </div>
   
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="button" class="cancel">Cancel</button>
     </div>
   </form>
 
   <br>
   <input type="button" value="Connect to mysql" id="btn" />
-
-  <script>
-    //Javascript files called
-    require('./login.js')
-    require('./renderer.js')
-  </script>
 </body>
 
 </html>
