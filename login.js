@@ -98,7 +98,7 @@ document.getElementById("register").addEventListener("click", () => {
     zip = document.getElementById("zip").value;
     salary = document.getElementById("salary").value;
     reginfo = document.getElementById("reginfo")
-    
+
     if (reginfo.innerHTML == "" || pass != pass2) {//Show additional registration info. 
         console.log(reginfo.innerHTML)
         reginfo.style.color = "red"
@@ -117,6 +117,27 @@ document.getElementById("register").addEventListener("click", () => {
                     console.log("Student Query succesfully added", rows)
                     reginfo.style.color = "green"
                     reginfo.innerHTML = "Success"
+                    //Checks the newly registered student and gets the id
+                    $query2 = "SELECT sid FROM students ORDER BY sid DESC LIMIT 1"
+                    connect.query($query2, function (err, logs2, fields) {
+                        if (err) {
+                            console.log("An error ocurred while performing the query.")
+                            console.log(err)
+                            return
+                        } else {
+                            console.log("User found", logs2)
+                            $query1 = "INSERT INTO logging (user, uid) VALUES (?, ?)"   //Inserts user into the log
+                            connect.query($query1, [user, logs2[0].pid], function (err, logs, fields) {
+                                if (err) {
+                                    console.log("An error ocurred while performing the query.")
+                                    console.log(err)
+                                    return
+                                } else {
+                                    console.log("User logged in", logs)
+                                }
+                            })
+                        }
+                    })
                 }
             })
         } else if (sorp == "professor") {
@@ -130,6 +151,28 @@ document.getElementById("register").addEventListener("click", () => {
                     console.log("Professor Query succesfully added", rows)
                     reginfo.style.color = "green"
                     reginfo.innerHTML = "Success"
+                    //Checks the newly registered professor and gets the id
+                    $query2 = "SELECT pid FROM professors ORDER BY pid DESC LIMIT 1"
+                    connect.query($query2, function (err, logs2, fields) {
+                        if (err) {
+                            console.log("An error ocurred while performing the query.")
+                            console.log(err)
+                            return
+                        } else {
+                            console.log("User found", logs2)
+                            $query1 = "INSERT INTO logging (user, uid) VALUES (?, ?)"   //Inserts user into the log
+                            connect.query($query1, [user, logs2[0].pid], function (err, logs, fields) {
+                                if (err) {
+                                    console.log("An error ocurred while performing the query.")
+                                    console.log(err)
+                                    return
+                                } else {
+                                    console.log("User logged in", logs)
+                                }
+                            })
+                        }
+                    })
+
                 }
             })
         }
