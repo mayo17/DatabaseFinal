@@ -20,6 +20,10 @@ button {
   cursor: pointer;
 }
 
+.cancel {
+  background-color: rgb(138, 4, 4);
+}
+
 .container {
   padding: 16px;
 }
