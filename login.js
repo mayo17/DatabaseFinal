@@ -1,10 +1,10 @@
 require('./renderer.js')
 
-document.getElementById("submit").addEventListener("click", () => {
+//Sets the login info with the provided info.
+user = document.getElementById("user").value;
+pass = document.getElementById("pass").value;
 
-    //Sets the login info with the provided info.
-    user = document.getElementById("user").value;
-    pass = document.getElementById("pass").value;
+document.getElementById("submit").addEventListener("click", () => {
 
     //Query to check if the user info is tied to a professor
     $query = "SELECT * FROM professors WHERE user = ? AND pass = ?"
@@ -85,3 +85,15 @@ document.getElementById("submit").addEventListener("click", () => {
     }
 
 }, false);
+
+document.getElementById("register").addEventListener("click", () => {
+    reginfo = document.getElementById("reginfo")
+    console.log(reginfo.innerHTML)
+    if (reginfo.innerHTML == "") {//Show additional registration info. 
+        reginfo.style.color = "red"
+        reginfo.innerHTML = "Please fill out the additional information and click register again"
+        document.getElementById("moreinfo").style.display = "block"
+    } else {
+        
+    }
+}, false)

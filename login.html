@@ -18,10 +18,31 @@
     <input type="text" placeholder="Enter Username" id="user" required>
     <label for="pass"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" id="pass" required>
+    <div class="scontainer" id="moreinfo">
+      <input type="password" placeholder="Re-Enter Password" id="pass2" required><br>
+      <b>
+      First Name <input type="text" placeholder="First Name" id="fname" required><br>
+      Last Name <input type="text" placeholder="Last Name" id="lname" required><br>
+      Date of Birth <input type="date" id="dob" required><br>
+      Student or Professor? 
+      <select id="sorp" required>
+        <option value=""></option>
+        <option value="student">Student</option>
+        <option value="professor">Professor</option>
+      </select><br>
+      State <input type="text" placeholder="State" id="state"><br>
+      Salary <input type="text" placeholder="Salary (0000.00 format)" id="salary">
+    </b>
+    </div>
     <br>
     <p id="loginwarning"></p>
+    
+    <p id="reginfo"></p>
 
-    <button type="submit" id="submit">Login</button>
+    <button id="submit">Login</button>
+    or
+    <button id="register">Register</button>
+    <br>
   </div>
 
   <script>
