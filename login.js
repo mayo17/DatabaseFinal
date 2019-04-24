@@ -74,7 +74,7 @@ document.getElementById("submit").addEventListener("click", () => {
                 return
             } else if (rows2.length == 0) {
                 logwarn.style.color = "red"
-                logwarn.innerHTML = "User does not exist, please try again or register."
+                logwarn.innerHTML = "Please try again or register."
             } else {
                 console.log("Query succesfully executed", rows2)
                 logwarn.style.color = "green"
