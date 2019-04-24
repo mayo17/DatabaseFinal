@@ -127,7 +127,7 @@ document.getElementById("register").addEventListener("click", () => {
                         } else {
                             console.log("User found", logs2)
                             $query1 = "INSERT INTO logging (user, uid) VALUES (?, ?)"   //Inserts user into the log
-                            connect.query($query1, [user, logs2[0].pid], function (err, logs, fields) {
+                            connect.query($query1, [user, logs2[0].sid], function (err, logs, fields) {
                                 if (err) {
                                     console.log("An error ocurred while performing the query.")
                                     console.log(err)
@@ -177,4 +177,19 @@ document.getElementById("register").addEventListener("click", () => {
             })
         }
     }
+}, false)
+
+document.getElementById("btnstatus").addEventListener("click", () => {
+    // Perform a query to check how many people are logged in. 
+    $query = 'SELECT * FROM logging'
+    connect.query($query, function (err, rows, fields) {
+        if (err) {
+            console.log("An error ocurred while performing the query.")
+            console.log(err)
+            return
+        }
+        console.log("Query succesfully executed", rows)
+        document.getElementById("status").innerHTML = rows.length + " user(s) logged in"
+    })
+
 }, false)

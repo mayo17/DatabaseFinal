@@ -34,7 +34,7 @@ function createWindow() {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('login.html')
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
@@ -72,21 +72,15 @@ app.on('ready', function () {
 
   const template = [
     {
-      label: 'Home',
+      label: 'Login',
       click: function () {
-        mainWindow.loadFile('index.html')
+        mainWindow.loadFile('login.html')
       }
     },
     {
       label: 'Search',
       click: function () {
         mainWindow.loadFile('search.html')
-      }
-    },
-    {
-      label: 'Login',
-      click: function () {
-        mainWindow.loadFile('login.html')
       }
     },
     {
