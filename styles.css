@@ -28,6 +28,10 @@ button {
   padding: 16px;
 }
 
+.scontainer {
+  display: none;
+}
+
 span.pass {
   float: right;
   padding-top: 16px;
