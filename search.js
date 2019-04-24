@@ -98,7 +98,6 @@ document.getElementById("check").addEventListener("click", () => {
 document.getElementById("generate3").addEventListener("click", () => {
     table = document.getElementById("gen3table")
     tuition = document.getElementById("tuition").value
-    console.log(search)
     // Perform a query to print the colleges based on tuition. 
     $query = "SELECT name, tuition, state, county, zip FROM colleges WHERE tuition < ? GROUP BY name"
     connect.query($query, [tuition], function (err, rows, fields) {
@@ -128,6 +127,44 @@ document.getElementById("generate3").addEventListener("click", () => {
 
 document.getElementById("clear3").addEventListener("click", () => {
     table = document.getElementById("gen3table")
+    //deletes old table
+    while (table.rows.length != 1) {
+        row = table.deleteRow(-1)
+    }
+}, false)
+
+document.getElementById("generate4").addEventListener("click", () => {
+    table = document.getElementById("gen4table")
+    accept = document.getElementById("accept").value
+    // Perform a query to print the colleges based on acceptance rate
+    $query = "SELECT name, (adnum/appnum * 100) AS accepted, state, county, zip FROM colleges WHERE (adnum/appnum * 100) <= ? ORDER BY (adnum/appnum * 100) DESC"
+    connect.query($query, [accept], function (err, rows, fields) {
+        if (err) {
+            console.log("An error ocurred while performing the query.")
+            console.log(err)
+            return
+        }
+        console.log("Query succesfully executed", rows)
+        //prints the results to the table
+        for (i = 0; i < rows.length; i++) {
+            row = table.insertRow()
+            cell0 = row.insertCell(0)
+            cell1 = row.insertCell(1)
+            cell2 = row.insertCell(2)
+            cell3 = row.insertCell(3)
+            cell4 = row.insertCell(4)
+            cell0.innerHTML = rows[i].name
+            cell1.innerHTML = rows[i].accepted + "%"
+            cell2.innerHTML = rows[i].state
+            cell3.innerHTML = rows[i].county
+            cell4.innerHTML = rows[i].zip
+        }
+    })
+
+}, false)
+
+document.getElementById("clear4").addEventListener("click", () => {
+    table = document.getElementById("gen4table")
     //deletes old table
     while (table.rows.length != 1) {
         row = table.deleteRow(-1)
