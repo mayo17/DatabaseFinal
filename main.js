@@ -49,11 +49,11 @@ function createWindow() {
         console.log(err)
         return
       }
-      console.log("Delete succesfully executed", rows)
+      //console.log("Delete succesfully executed", rows)
     })
 
     connect.end(function () {
-      console.log("MYSQL connection closed")
+      //console.log("MYSQL connection closed")
     })
 
     // Dereference the window object, usually you would store windows
@@ -74,35 +74,24 @@ app.on('ready', function () {
     {
       label: 'Home',
       click: function () {
-        console.log('Clicked demo')
         mainWindow.loadFile('index.html')
       }
     },
     {
       label: 'Search',
       click: function () {
-        console.log('Clicked Search')
         mainWindow.loadFile('search.html')
       }
     },
     {
       label: 'Login',
       click: function () {
-        console.log('Clicked login')
         mainWindow.loadFile('login.html')
-      }
-    },
-    {
-      label: 'Register',
-      click: function () {
-        console.log('Clicked Register')
-        mainWindow.loadFile('register.html')
       }
     },
     {
       label: 'Account Info',
       click: function () {
-        console.log('Clicked Account Info')
         mainWindow.loadFile('account.html')
       }
     }
