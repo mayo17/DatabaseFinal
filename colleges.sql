@@ -14,31 +14,6 @@ CREATE TABLE colleges(
   ,genum   INTEGER 
 );
 
-DROP TABLE IF EXISTS students;
-CREATE TABLE students(
-  sid       INTEGER NOT NULL PRIMARY KEY
-  ,fname    VARCHAR(200) NOT NULL
-  ,lname    VARCHAR(200) NOT NULL
-  ,dob      DATE NOT NULL
-  ,state    VARCHAR(20) NOT NULL
-  ,zip      INTEGER NOT NULL
-  ,user     VARCHAR(200) NOT NULL
-  ,password VARCHAR(200) NOT NULL
-);
-
-DROP TABLE IF EXISTS professors;
-CREATE TABLE professors(
-  pid       INTEGER NOT NULL PRIMARY KEY
-  ,fname    VARCHAR(200) NOT NULL
-  ,lname    VARCHAR(200) NOT NULL
-  ,dob      DATE NOT NULL
-  ,state    VARCHAR(20)
-  ,zip      INTEGER
-  ,salary   FLOAT(200,2)
-  ,user     VARCHAR(200) NOT NULL
-  ,password VARCHAR(200) NOT NULL
-);
-
 INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (100654,'Alabama A & M University',35762,'Doctor''s degree - research/scholarship','Madison County',6142,5521,7182,'Alabama',5020,4051,969);
 INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (100663,'University of Alabama at Birmingham',35294,'Doctor''s degree - research/scholarship and professional practice','Jefferson County',5689,4934,7206,'Alabama',18568,11502,7066);
 INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (100690,'Amridge University',36117,'Doctor''s degree - research/scholarship and professional practice','Montgomery County',NULL,NULL,6870,'Alabama',631,322,309);
@@ -1569,7 +1544,7 @@ INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,u
 INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (449931,'Averett University-Non-Traditional Programs',24541,'Master''s degree','Danville city',NULL,NULL,NULL,'Virginia',1221,790,431);
 INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (450766,'LIU Riverhead',11901,'Master''s degree','Suffolk County',NULL,NULL,NULL,'New York',215,56,159);
 INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (451671,'University of South Florida-Sarasota-Manatee',34243,'Master''s degree','Manatee County',393,136,5587,'Florida',1877,1728,149);
-INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (454184,'The Kingâ€™s College',10004,'Bachelor''s degree','New York County',3033,2158,31300,'New York',516,516,0);
+INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (454184,'The King''s College',10004,'Bachelor''s degree','New York County',3033,2158,31300,'New York',516,516,0);
 INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (454582,'Ottawa University-Online',66067,'Master''s degree','Franklin County',NULL,NULL,NULL,'Kansas',458,383,75);
 INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (455770,'Providence Christian College',91104,'Bachelor''s degree','Los Angeles County',122,65,24222,'California',66,66,0);
 INSERT INTO colleges(cid,name,zip,hdeg,county,appnum,adnum,tuition,state,tenum,ugenum,genum) VALUES (456490,'Polytechnic University of Puerto Rico-Orlando',32825,'Master''s degree','Orange County',NULL,NULL,10920,'Florida',125,82,43);
