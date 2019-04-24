@@ -1,5 +1,7 @@
 require('./renderer.js')
 
+table = document.getElementById("satable")
+
 window.addEventListener("load", () => {
     var user = null;
     // Perform a query to check the status of the most recently logged in user. 
@@ -9,9 +11,9 @@ window.addEventListener("load", () => {
             console.log("An error ocurred while performing the query.")
             console.log(err)
             return
-        }else if(logs[0].uid <= 5000) {
+        } else if (logs[0].uid <= 5000) {
             document.getElementById("greeting").innerHTML = "Hello Student";
-        }else if(logs[0].uid > 5000) {
+        } else if (logs[0].uid > 5000) {
             document.getElementById("greeting").innerHTML = "Hello Professor";
             document.getElementById("studentattendance").style.display = "block";
         }
@@ -34,13 +36,19 @@ document.getElementById("generate").addEventListener("click", () => {
 
 }, false)
 
+document.getElementById("clear").addEventListener("click", () => {
+    //deletes old table
+    while (table.rows.length != 1) {
+        row = table.deleteRow(-1)
+    }
+}, false)
+
 document.getElementById("check").addEventListener("click", () => {
     fname = document.getElementById("fname").value
     lname = document.getElementById("lname").value
-    table = document.getElementById("satable")
     console.log(fname)
     console.log(lname)
-    
+
     //Query of attendance of a single student at any schools
     $query = "SELECT c.name, a.dstart, a.dend FROM attends a, students s, colleges c WHERE s.fname = ? AND s.lname = ? AND s.sid = a.uid AND a.cid = c.cid GROUP BY c.name"
     connect.query($query, [fname, lname], function (err, rows, fields) {
@@ -50,8 +58,8 @@ document.getElementById("check").addEventListener("click", () => {
             return
         }
         console.log("Query succesfully executed", rows)
-        //Prints the results to the table
-        for(i = 0; i < rows.length; i++) {
+        //Deletes old table and prints the results to the table
+        for (i = 0; i < rows.length; i++) {
             row = table.insertRow()
             cell0 = row.insertCell(0)
             cell1 = row.insertCell(1)

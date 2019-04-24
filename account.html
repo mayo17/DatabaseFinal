@@ -10,14 +10,37 @@
 
 <body>
   <h1>Account Page</h1>
-  <p id ="greeting"></p>
+  <p id="greeting"></p>
   <br>
+  <h2>Attendance Information</h2>
   Click the button to generate your attendance information.
-  <br>
-  <br>
+  <br><br>
   <button type="submit" id="generate">Generate Attendance</button>
+  <button type="submit" class="cancel" id="clear">Clear Table</button>
   <br>
-  <p id="status"></p>
+  <table id="sptable">
+    <tr>
+      <th>College Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+    </tr>
+  </table>
+  <br><br>
+  <h2>Add Attendance</h2>
+  Fill out the information below to add new attendance.
+  <div class="scontainer" id="addattend">
+      <br>
+      College Name: <select placeholder="College Name" id="cname" required>
+      <input type = "date" hidden> <!--to avoid weird html removal-->
+      <br> 
+      Start Date: <input type="date" placeholder="Start Date" id="dstart" required>
+      <br>
+      End Date: <input type="date" placeholder="End Date" id="dend" required>
+      <br>
+      <p id="notice"></p>
+      <button type="submit" id="add">Add Attendance</button>
+      <br>
+  </div>
 
   <script>
     //Javascript files called
