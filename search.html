@@ -13,12 +13,46 @@
   <p id="greeting"></p>
   <br>
   <h2>School Search</h2>
-  Click the button to generate your search information.
-  <br><br>
+  Generate a list of schools based on search terms.
+  <br>
+  <br>
+  <input type="text" placeholder="Search" id="search" required>
+  <br>
   <button type="submit" id="generate">Generate</button>
   <button type="submit" class="cancel" id="clear2">Clear Table</button>
   <br>
-  <p id="status"></p>
+  <table id="searchtable">
+    <tr>
+      <th>College Name</th>
+      <th>Highest Degree Offered</th>
+      <th>State</th>
+      <th>County</th>
+      <th>Zip Code</th>
+    </tr>
+  </table>
+  <br><br>
+  Generate a list of schools based on tuition.
+  <br><br>
+  <select id = "tuition">
+    <option value=""></option>
+    <option value="10000">&lt; $10000</option>
+    <option value="15000">&lt; $15000</option>
+    <option value="25000">&lt; $25000</option>
+    <option value="50000">&lt; $50000</option>
+  </select>
+  <br>
+  <button type="submit" id="generate3">Generate</button>
+  <button type="submit" class="cancel" id="clear3">Clear Table</button>
+  <br>
+  <table id="gen3table">
+    <tr>
+      <th>College Name</th>
+      <th>Tuition</th>
+      <th>State</th>
+      <th>County</th>
+      <th>Zip Code</th>
+    </tr>
+  </table>
   <br><br>
   <div class="scontainer" id="studentattendance" hidden>
     <h2>Student Search</h2>
@@ -27,7 +61,7 @@
     <input type="text" placeholder="Enter First Name" id="fname" required>
     <input type="text" placeholder="Enter Last Name" id="lname" required>
     <br>
-    <button type="submit" id="check">Check</button>
+    <button type="submit" id="check">Generate</button>
     <button type="submit" class="cancel" id="clear">Clear Table</button>
     <br>
 
