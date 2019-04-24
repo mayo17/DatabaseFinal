@@ -1,10 +1,9 @@
 require('./renderer.js')
 
-//Sets the login info with the provided info.
-user = document.getElementById("user").value;
-pass = document.getElementById("pass").value;
-
 document.getElementById("submit").addEventListener("click", () => {
+    //Sets the login info
+    user = document.getElementById("user").value;
+    pass = document.getElementById("pass").value;
 
     //Query to check if the user info is tied to a professor
     $query = "SELECT * FROM professors WHERE user = ? AND pass = ?"
@@ -87,13 +86,52 @@ document.getElementById("submit").addEventListener("click", () => {
 }, false);
 
 document.getElementById("register").addEventListener("click", () => {
+    //sets the registration info
+    user = document.getElementById("user").value;
+    pass = document.getElementById("pass").value;
+    pass2 = document.getElementById("pass2").value;
+    sorp = document.getElementById("sorp").value;
+    fname = document.getElementById("fname").value;
+    lname = document.getElementById("lname").value;
+    dob = document.getElementById("dob").value;
+    state = document.getElementById("state").value;
+    zip = document.getElementById("zip").value;
+    salary = document.getElementById("salary").value;
     reginfo = document.getElementById("reginfo")
-    console.log(reginfo.innerHTML)
-    if (reginfo.innerHTML == "") {//Show additional registration info. 
+    
+    if (reginfo.innerHTML == "" || pass != pass2) {//Show additional registration info. 
+        console.log(reginfo.innerHTML)
         reginfo.style.color = "red"
         reginfo.innerHTML = "Please fill out the additional information and click register again"
         document.getElementById("moreinfo").style.display = "block"
     } else {
-        
+        //Checks to run the student or professor query. 
+        if (sorp == "student") {
+            $query = "INSERT INTO students (fname, lname, dob, state, zip, user, pass) VALUES (?, ?, ?, ?, ?, ?, ?)"
+            connect.query($query, [fname, lname, dob, state, zip, user, pass], function (err, rows, fields) {
+                if (err) {
+                    console.log("An error ocurred while performing the query.")
+                    console.log(err)
+                    return
+                } else {
+                    console.log("Student Query succesfully added", rows)
+                    reginfo.style.color = "green"
+                    reginfo.innerHTML = "Success"
+                }
+            })
+        } else if (sorp == "professor") {
+            $query = "INSERT INTO professors (fname, lname, dob, state, zip, salary, user, pass) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+            connect.query($query, [fname, lname, dob, state, zip, salary, user, pass], function (err, rows, fields) {
+                if (err) {
+                    console.log("An error ocurred while performing the query.")
+                    console.log(err)
+                    return
+                } else {
+                    console.log("Professor Query succesfully added", rows)
+                    reginfo.style.color = "green"
+                    reginfo.innerHTML = "Success"
+                }
+            })
+        }
     }
 }, false)
