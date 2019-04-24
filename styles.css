@@ -20,16 +20,27 @@ button {
   cursor: pointer;
 }
 
-.cancel {
-  background-color: #f44336;
-}
-
 .container {
   padding: 16px;
 }
 
 .scontainer {
   display: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 
 span.pass {
